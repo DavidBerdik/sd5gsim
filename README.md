@@ -118,7 +118,7 @@ used in the connections
 * power: the transmission power for the antenna.
 ## SD5GSim_GUI:
 **This class is the network simulator GUI. Where the interface includes the following components:**
-![SD5GSim](https://user-images.githubusercontent.com/59348176/71614636-dce1a000-2b7a-11ea-9384-69d80c99e7df.png)
+![SD5GSim](icons/SD5GSim_GUI.png)
 ### Network parameters component:
 In this component, the user can select different parameters to build the network simulation environment, including:
 * Number of cells
