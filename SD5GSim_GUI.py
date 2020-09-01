@@ -97,18 +97,18 @@ class SD5GSim_GUI:
         #############################
         self.toolbar = Frame(self.root, bd=4, bg='#20B2AA')
 
-        self.run_img = Image.open("run.png")
+        self.run_img = Image.open("icons/run.png")
         # self.run_img = self.run_img.resize((25, 23), Image.ANTIALIAS) ## The (250, 250) is (height, width)
         self.render2 = ImageTk.PhotoImage(self.run_img)
 
-        self.gen_img = Image.open("gen.png")
+        self.gen_img = Image.open("icons/gen.png")
         # self.gen_img = self.gen_img.resize((25, 28), Image.ANTIALIAS) ## The (250, 250) is (height, width)
         self.render3 = ImageTk.PhotoImage(self.gen_img)
 
-        self.exit_img = Image.open("exit.png")
+        self.exit_img = Image.open("icons/exit.png")
         self.render4 = ImageTk.PhotoImage(self.exit_img)
 
-        self.clear_img = Image.open("clear.png")
+        self.clear_img = Image.open("icons/clear.png")
         self.render5 = ImageTk.PhotoImage(self.clear_img)
         ##############################################################
 
@@ -144,21 +144,21 @@ class SD5GSim_GUI:
         ####################
         tabControl = ttk.Notebook(self.right_frame)          # Create Tab Control
         ####################
-        ss_img = Image.open("icon3.png")
+        ss_img = Image.open("icons/icon3.png")
         ss_img = ss_img.resize((20, 20), Image.ANTIALIAS)  # The (250, 250) is (height, width)
         render = ImageTk.PhotoImage(ss_img)
 
-        ss1_img = Image.open("icon2.png")
+        ss1_img = Image.open("icons/icon2.png")
         ss1_img = ss1_img.resize((20, 20), Image.ANTIALIAS)  # The (250, 250) is (height, width)
         render3 = ImageTk.PhotoImage(ss1_img)
 
-        ss2_img = Image.open("icon5.png")
+        ss2_img = Image.open("icons/icon5.png")
         ss2_img = ss2_img.resize((20, 20), Image.ANTIALIAS)  # The (250, 250) is (height, width)
         render5 = ImageTk.PhotoImage(ss2_img)
 
         ss_icon_list = [render, render3, render5]
 
-        bs_img = Image.open("icon4.png")
+        bs_img = Image.open("icons/icon4.png")
         bs_img = bs_img.resize((50, 50), Image.ANTIALIAS)  # The (250, 250) is (height, width)
         render1 = ImageTk.PhotoImage(bs_img)
 
