@@ -1,11 +1,5 @@
-import random
-import basestation
-import node
-import v_node
-import antenna
-import channel
-from SD5GSim_GUI import SD5GSim_GUI
 from tkinter import *
+from libs.SD5GSim_GUI import SD5GSim_GUI
 
 def main():
     root = Tk()
