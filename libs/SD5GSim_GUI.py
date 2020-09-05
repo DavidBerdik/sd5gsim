@@ -6,12 +6,12 @@ from tkinter import ttk
 from collections import defaultdict
 import random
 from statistics import mean
-from basestation import basestation
-from node import node
-import v_node
-import channel
-import antenna
-from ToolTip import ToolTip
+from libs.basestation import basestation
+from libs.node import node
+import libs.v_node as v_node
+import libs.channel as channel
+import libs.antenna as antenna
+from libs.ToolTip import ToolTip
 from concurrent.futures import ThreadPoolExecutor
 import threading
 
