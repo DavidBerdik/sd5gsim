@@ -189,6 +189,9 @@ class SD5GSim_GUI:
                 img.place(x=node.coordinates['x'], y=node.coordinates['y'])
 
     def get_sim_args(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
+        threading.Thread(target=self.get_sim_args_background, args=(cell_count, ch_count, node_count, vn_count, ant_count, sim_time)).start()
+
+    def get_sim_args_background(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
         global bss
 
         max_time = int(sim_time)
