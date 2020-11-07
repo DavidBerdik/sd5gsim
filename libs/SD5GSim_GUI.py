@@ -132,6 +132,15 @@ class SD5GSim_GUI:
 			if widget != self.toolbar:
 				widget.destroy()
 
+	def generate_environment_dialog(self):
+		global gen_environ_popup
+		gen_environ_popup = Toplevel()
+		gen_environ_popup.geometry('400x48')
+		gen_environ_popup.resizable(False, False)
+		gen_environ_popup.protocol('WM_DELETE_WINDOW', self.doNothing)
+		Label(gen_environ_popup, text="Generating environment. Please wait...", font=("TkDefaultFont", 15)).pack(expand=True)
+		gen_environ_popup.pack_slaves()
+
 	def progress_dialog(self, prog_max):
 		global sim_progress_popup
 		global sim_progress
@@ -146,6 +155,11 @@ class SD5GSim_GUI:
 		sim_progress_popup.pack_slaves()
 
 	def generate_environment_2(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
+		self.generate_environment_dialog()
+		gen_environ_popup.grab_set()
+		threading.Thread(target=self.generate_environment_2_background, args=(cell_count, ch_count, node_count, vn_count, ant_count, sim_time)).start()
+
+	def generate_environment_2_background(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
 		global bss
 		####################
 		tabControl = ttk.Notebook(self.right_frame)		  # Create Tab Control
@@ -193,6 +207,8 @@ class SD5GSim_GUI:
 				img = Label(tab1, image=temp_render)
 				img.image = temp_render
 				img.place(x=node.coordinates['x'], y=node.coordinates['y'])
+		gen_environ_popup.destroy()
+		gen_environ_popup.grab_release()
 
 	def get_sim_args(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
 		self.progress_dialog(int(sim_time))
