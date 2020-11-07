@@ -145,6 +145,7 @@ class SD5GSim_GUI:
 		sim_progress_popup = Toplevel()
 		sim_progress_popup.geometry('400x48')
 		sim_progress_popup.resizable(False, False)
+		sim_progress_popup.protocol('WM_DELETE_WINDOW', self.doNothing)
 		Label(sim_progress_popup, text="Running Simulation").grid(row=0,column=0)
 		sim_progress = DoubleVar()
 		progress_bar = ttk.Progressbar(sim_progress_popup, variable=sim_progress, maximum=prog_max, length=400)
