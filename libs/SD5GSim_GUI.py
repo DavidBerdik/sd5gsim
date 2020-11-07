@@ -139,6 +139,18 @@ class SD5GSim_GUI:
             if widget != self.toolbar:
                 widget.destroy()
 
+    def progress_dialog(self, prog_max):
+        global sim_progress
+        popup = Toplevel()
+        popup.geometry('400x48')
+        popup.resizable(False, False)
+        Label(popup, text="Running Simulation").grid(row=0,column=0)
+        sim_progress = DoubleVar()
+        progress_bar = ttk.Progressbar(popup, variable=sim_progress, maximum=prog_max, length=400)
+        progress_bar.grid(row=1, column=0)#.pack(fill=tk.X, expand=1, side=tk.BOTTOM)
+        popup.pack_slaves()
+        #popup.mainloop()
+
     def generate_environment_2(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
         global bss
         ####################
@@ -189,6 +201,8 @@ class SD5GSim_GUI:
                 img.place(x=node.coordinates['x'], y=node.coordinates['y'])
 
     def get_sim_args(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
+        self.progress_dialog(int(sim_time))
+        print('TEST')
         threading.Thread(target=self.get_sim_args_background, args=(cell_count, ch_count, node_count, vn_count, ant_count, sim_time)).start()
 
     def get_sim_args_background(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
@@ -197,6 +211,7 @@ class SD5GSim_GUI:
         max_time = int(sim_time)
         start_time = time.time()  # remember when we started
         while (time.time() - start_time) < max_time:
+            sim_progress.set(time.time() - start_time)
             self.run_io_tasks_in_parallel([
                 lambda: self.start_simulation(bss[0]),
                 lambda: self.start_simulation(bss[1]),
