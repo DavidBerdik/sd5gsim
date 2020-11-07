@@ -140,16 +140,16 @@ class SD5GSim_GUI:
                 widget.destroy()
 
     def progress_dialog(self, prog_max):
+		global sim_progress_popup
         global sim_progress
-        popup = Toplevel()
-        popup.geometry('400x48')
-        popup.resizable(False, False)
-        Label(popup, text="Running Simulation").grid(row=0,column=0)
+        sim_progress_popup = Toplevel()
+        sim_progress_popup.geometry('400x48')
+        sim_progress_popup.resizable(False, False)
+        Label(sim_progress_popup, text="Running Simulation").grid(row=0,column=0)
         sim_progress = DoubleVar()
-        progress_bar = ttk.Progressbar(popup, variable=sim_progress, maximum=prog_max, length=400)
+        progress_bar = ttk.Progressbar(sim_progress_popup, variable=sim_progress, maximum=prog_max, length=400)
         progress_bar.grid(row=1, column=0)#.pack(fill=tk.X, expand=1, side=tk.BOTTOM)
-        popup.pack_slaves()
-        #popup.mainloop()
+        sim_progress_popup.pack_slaves()
 
     def generate_environment_2(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
         global bss
