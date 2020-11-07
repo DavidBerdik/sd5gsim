@@ -97,6 +97,9 @@ class SD5GSim_GUI:
 		#############################
 		self.toolbar = Frame(self.root, bd=4, bg='#20B2AA')
 
+		self.program_icon = ImageTk.PhotoImage(Image.open("icons/icon.png"))
+		root.call('wm', 'iconphoto', root._w, self.program_icon)
+
 		self.run_img = Image.open("icons/run.png")
 		# self.run_img = self.run_img.resize((25, 23), Image.ANTIALIAS) ## The (250, 250) is (height, width)
 		self.render2 = ImageTk.PhotoImage(self.run_img)
@@ -138,6 +141,7 @@ class SD5GSim_GUI:
 		gen_environ_popup.geometry('400x48')
 		gen_environ_popup.resizable(False, False)
 		gen_environ_popup.protocol('WM_DELETE_WINDOW', self.doNothing)
+		gen_environ_popup.iconphoto(False, self.program_icon)
 		Label(gen_environ_popup, text="Generating environment. Please wait...", font=("TkDefaultFont", 15)).pack(expand=True)
 		gen_environ_popup.pack_slaves()
 
@@ -147,6 +151,7 @@ class SD5GSim_GUI:
 		sim_progress_popup = Toplevel()
 		sim_progress_popup.geometry('400x48')
 		sim_progress_popup.resizable(False, False)
+		sim_progress_popup.iconphoto(False, self.program_icon)
 		sim_progress_popup.protocol('WM_DELETE_WINDOW', self.doNothing)
 		Label(sim_progress_popup, text="Running Simulation").grid(row=0,column=0)
 		sim_progress = DoubleVar()
