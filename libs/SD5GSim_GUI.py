@@ -112,9 +112,9 @@ class SD5GSim_GUI:
 		self.render5 = ImageTk.PhotoImage(self.clear_img)
 		##############################################################
 
-		self.gen_butt = Button(self.toolbar, image=self.render3, text="Generate Envirnment", command=lambda: self.generate_environment_2(self.entry1.get(), self.entry2.get(), self.entry3.get(), self.entry4.get(), self.entry5.get(), self.entry6.get()), bg='#008080')
+		self.gen_butt = Button(self.toolbar, image=self.render3, text="Generate Environment", command=lambda: self.generate_environment_2(self.entry1.get(), self.entry2.get(), self.entry3.get(), self.entry4.get(), self.entry5.get(), self.entry6.get()), bg='#008080')
 		self.gen_butt.pack(side=LEFT, padx=2, pady=2)
-		self.CreateToolTip(self.gen_butt, text='Generate Envirnment')
+		self.CreateToolTip(self.gen_butt, text='Generate Environment')
 		self.run_butt = Button(self.toolbar, image=self.render2, text="Start Simulation", command=lambda: self.get_sim_args(self.entry1.get(), self.entry2.get(), self.entry3.get(), self.entry4.get(), self.entry5.get(), self.entry6.get()), bg='#008080')
 		self.run_butt.pack(side=LEFT, padx=2, pady=2)
 		self.CreateToolTip(self.run_butt, text='Start Simulation')
