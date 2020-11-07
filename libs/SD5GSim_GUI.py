@@ -132,7 +132,7 @@ class SD5GSim_GUI:
 		self.status.pack(side=BOTTOM, fill=X)
 
 	def doNothing(self):
-		print("Works!!")
+		pass
 
 	def clear_frame(self, frame):
 		for widget in frame.winfo_children():
