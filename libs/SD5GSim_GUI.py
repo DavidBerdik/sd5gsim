@@ -148,7 +148,7 @@ class SD5GSim_GUI:
 		Label(sim_progress_popup, text="Running Simulation").grid(row=0,column=0)
 		sim_progress = DoubleVar()
 		progress_bar = ttk.Progressbar(sim_progress_popup, variable=sim_progress, maximum=prog_max, length=400)
-		progress_bar.grid(row=1, column=0)#.pack(fill=tk.X, expand=1, side=tk.BOTTOM)
+		progress_bar.grid(row=1, column=0)
 		sim_progress_popup.pack_slaves()
 
 	def generate_environment_2(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
@@ -202,7 +202,6 @@ class SD5GSim_GUI:
 
 	def get_sim_args(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
 		self.progress_dialog(int(sim_time))
-		print('TEST')
 		threading.Thread(target=self.get_sim_args_background, args=(cell_count, ch_count, node_count, vn_count, ant_count, sim_time)).start()
 
 	def get_sim_args_background(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
