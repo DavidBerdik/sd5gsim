@@ -202,6 +202,7 @@ class SD5GSim_GUI:
 
 	def get_sim_args(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
 		self.progress_dialog(int(sim_time))
+		sim_progress_popup.grab_set()
 		threading.Thread(target=self.get_sim_args_background, args=(cell_count, ch_count, node_count, vn_count, ant_count, sim_time)).start()
 
 	def get_sim_args_background(self, cell_count, ch_count, node_count, vn_count, ant_count, sim_time):
@@ -235,6 +236,7 @@ class SD5GSim_GUI:
 		self.label10['text'] = str(avg_blocking_rate)
 		self.label14['text'] = str(avg_overhead)
 		sim_progress_popup.destroy()
+		sim_progress_popup.grab_release()
 	
 	def CreateToolTip(self, widget, text):
 		toolTip = ToolTip(widget)
