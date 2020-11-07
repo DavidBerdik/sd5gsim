@@ -235,6 +235,7 @@ class SD5GSim_GUI:
 		self.label8['text'] = str(avg_throughput)
 		self.label10['text'] = str(avg_blocking_rate)
 		self.label14['text'] = str(avg_overhead)
+		sim_progress_popup.destroy()
 	
 	def CreateToolTip(self, widget, text):
 		toolTip = ToolTip(widget)
