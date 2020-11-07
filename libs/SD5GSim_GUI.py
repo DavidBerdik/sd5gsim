@@ -105,9 +105,6 @@ class SD5GSim_GUI:
 		# self.gen_img = self.gen_img.resize((25, 28), Image.ANTIALIAS) ## The (250, 250) is (height, width)
 		self.render3 = ImageTk.PhotoImage(self.gen_img)
 
-		self.exit_img = Image.open("icons/exit.png")
-		self.render4 = ImageTk.PhotoImage(self.exit_img)
-
 		self.clear_img = Image.open("icons/clear.png")
 		self.render5 = ImageTk.PhotoImage(self.clear_img)
 		##############################################################
@@ -121,10 +118,6 @@ class SD5GSim_GUI:
 		self.clear_butt = Button(self.toolbar, image=self.render5, text="Clear Environment", command=lambda: self.clear_frame(self.right_frame), bg='#008080')
 		self.clear_butt.pack(side=LEFT, padx=2, pady=2)
 		self.CreateToolTip(self.clear_butt, text='Clear Environment')
-
-		self.exit_butt = Button(self.toolbar, image=self.render4, text="Exit", command=self.root.destroy, bg='#008080')
-		self.exit_butt.pack(side=LEFT, padx=2, pady=2)
-		self.CreateToolTip(self.exit_butt, text='Exit Simulator')
 
 		self.toolbar.pack(side=TOP, fill=X)
 		############################
