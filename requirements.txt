@@ -1,5 +1,6 @@
 datetime
 matplotlib
+numpy==1.19.3
 pandas
 Pillow
 uuid
