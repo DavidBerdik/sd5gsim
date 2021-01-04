@@ -227,13 +227,11 @@ class SD5GSim_GUI:
 		start_time = time.time()  # remember when we started
 		while (time.time() - start_time) < max_time:
 			sim_progress.set(time.time() - start_time)
-			self.run_io_tasks_in_parallel([
-				lambda: self.start_simulation(bss[0]),
-				lambda: self.start_simulation(bss[1]),
-				lambda: self.start_simulation(bss[2]),
-				lambda: self.start_simulation(bss[3]),
-				lambda: self.start_simulation(bss[4]),
-			])
+			tasks = []
+			for basestation in bss:
+				tasks.append(lambda: self.start_simulation(basestation))
+			
+			self.run_io_tasks_in_parallel(tasks)
 
 		metrics = defaultdict(list)
 
